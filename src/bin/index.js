@@ -1,5 +1,15 @@
 #!/usr/bin/env node
 
-import half from '..';
+import getGeo from '..';
+import program from 'commander';
+import { version } from '../../package';
 
-console.log(half(Number(process.argv[process.argv.length - 1])));
+program
+  .version(version)
+  .usage('get-geo [ip]')
+  .arguments('[ip]')
+  .action(async (ip) => {
+    const result = await getGeo(ip);
+    console.log(result);
+  })
+  .parse(process.argv);
