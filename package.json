@@ -1,13 +1,13 @@
 {
-  "name": "nodejs-package",
-  "version": "0.0.3",
+  "name": "workshop-oop-maximtop",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "bin": {
-    "hexlet": "dist/bin/hexlet.js"
+    "workshop": "dist/bin/index.js"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "files": [
     "dist"
@@ -19,17 +19,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hexlet-boilerplates/nodejs-package.git"
+    "url": "git+https://github.com/maximtop/workshop-oop.git"
   },
-  "author": "Kirill Mokevnin",
-  "license": "ISC",
+  "author": "Maxim Topchu",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hexlet-boilerplates/nodejs-package/issues"
+    "url": "https://github.com/maximtop/workshop-oop/issues"
   },
   "jest": {
     "testEnvironment": "node"
   },
-  "homepage": "https://github.com/hexlet-boilerplates/nodejs-package#readme",
+  "homepage": "https://github.com/maximtop/workshop-oop#readme",
   "dependencies": {
     "gulp": "^4.0.0",
     "source-map-support": "^0.5.10"
