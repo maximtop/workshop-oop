@@ -1,7 +1,7 @@
 install: install-deps install-flow-typed
 
 run:
-	npx babel-node -- 'src/bin/index.js' 222.222.222.222
+	npx babel-node -- 'src/bin/index.js'
 
 install-deps:
 	npm install
