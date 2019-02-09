@@ -1,4 +1,4 @@
-import Geo from '../src';
+import { Geo } from '../src';
 
 test('getGeo should handle rejected requests', async () => {
   const error = new Error('error message');

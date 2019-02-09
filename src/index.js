@@ -1,4 +1,6 @@
 import 'source-map-support/register';
-import getGeo from './get-geo';
+import Geo from './get-geo';
+import pipeline from './pipeline';
+import Pipeline from './pipeline/oop-index';
 
-export default getGeo;
+export { Geo, pipeline, Pipeline };
