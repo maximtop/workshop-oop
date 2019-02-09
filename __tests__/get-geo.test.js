@@ -1,8 +1,6 @@
 import Geo from '../src';
 
 test('getGeo should handle rejected requests', async () => {
-  expect.assertions(1);
-
   const error = new Error('error message');
 
   class TestApi {
@@ -14,11 +12,7 @@ test('getGeo should handle rejected requests', async () => {
   }
 
   const geo = new Geo(new TestApi());
-  try {
-    const data = await geo.getGeo('');
-  } catch (e) {
-    expect(e.message).toEqual(error.message);
-  }
+  await expect(geo.getGeo('')).rejects.toEqual(error);
 });
 
 test('getGeo should handle provided ip address correctly', async () => {
