@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import getGeo from '..';
+import Geo from '..';
 import program from 'commander';
 import { version } from '../../package';
 
@@ -9,7 +9,12 @@ program
   .usage('get-geo [ip]')
   .arguments('[ip]')
   .action(async (ip) => {
-    const result = await getGeo(ip);
-    console.log(result);
+    const geo = new Geo();
+    try {
+      const geoData = await geo.getGeo(ip);
+      console.log(geoData);
+    } catch (e) {
+      console.log(e.message);
+    }
   })
   .parse(process.argv);

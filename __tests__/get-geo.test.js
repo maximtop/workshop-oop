@@ -1,4 +1,4 @@
-import getGeo from '../src';
+import Geo from '../src';
 
 test('getGeo should handle rejected requests', async () => {
   const error = new Error('error message');
@@ -11,8 +11,12 @@ test('getGeo should handle rejected requests', async () => {
     }
   }
 
-  const data = await getGeo('', new TestApi());
-  expect(data).toEqual(`Sorry some error happened: "${error.message}"`);
+  const geo = new Geo();
+  try {
+    const data = await geo.getGeo('', new TestApi());
+  } catch (e) {
+    expect(e.message).toEqual(error.message);
+  }
 });
 
 test('getGeo should handle provided ip address correctly', async () => {
@@ -81,14 +85,15 @@ test('getGeo should handle provided ip address correctly', async () => {
     }
   }
 
-  const localData = await getGeo('', new TestApi());
+  const geo = new Geo();
+  const localData = await geo.getGeo('', new TestApi());
   expect(localData).toEqual(geoData.local);
 
   const japanIp = '111.111.111.111';
-  const japanData = await getGeo(japanIp, new TestApi());
+  const japanData = await geo.getGeo(japanIp, new TestApi());
   expect(japanData).toEqual(geoData[japanIp]);
 
   const chinaIp = '222.222.222.222';
-  const chinaData = await getGeo(chinaIp, new TestApi());
+  const chinaData = await geo.getGeo(chinaIp, new TestApi());
   expect(chinaData).toEqual(geoData[chinaIp]);
 });

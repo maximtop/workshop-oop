@@ -1,12 +1,9 @@
 import Api from './Api';
 
-export default async (ipAddress = '', api = new Api()) => {
-  let response;
-  try {
-    response = await api.getGeo(ipAddress);
-  } catch (e) {
-    response = `Sorry some error happened: "${e.message}"`;
+class Geo {
+  async getGeo(ipAddress = '', api = new Api()) {
+    return api.getGeo(ipAddress);
   }
+}
 
-  return response;
-};
+export default Geo;
