@@ -7,18 +7,10 @@ class Api {
 
   async getGeo(ipAddress = '') {
     const requestUrl = `${this.serviceUrl}/${ipAddress}`;
-    let result;
-    try {
-      const { data } = await axios.get(requestUrl, {
-        validateStatus: status => {
-          return status === 200;
-        }
-      });
-      result = { error: null, data };
-    } catch (e) {
-      result = { error: e.message };
-    }
-    return result;
+    const { data } = await axios.get(requestUrl, {
+      validateStatus: status => status === 200,
+    });
+    return data;
   }
 }
 

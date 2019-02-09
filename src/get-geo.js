@@ -1,16 +1,12 @@
 import Api from './Api';
 
-export default async (ipAddress) => {
-  const api = new Api();
-  const { error, data } = await api.getGeo(ipAddress);
-
-  if (error) {
-    return `Sorry some error happened: "${error}"`;
+export default async (ipAddress = '', api = new Api()) => {
+  let response;
+  try {
+    response = await api.getGeo(ipAddress);
+  } catch (e) {
+    response = `Sorry some error happened: "${e.message}"`;
   }
 
-  if (data.status !== 'success') {
-    return `Sorry some error happened: "${data.message}"`;
-  }
-
-  return data;
+  return response;
 };
