@@ -1,8 +1,11 @@
 import Api from './Api';
 
 class Geo {
-  async getGeo(ipAddress = '', api = new Api()) {
-    return api.getGeo(ipAddress);
+  constructor(api = new Api()) {
+    this.api = api;
+  }
+  async getGeo(ipAddress = '') {
+    return this.api.getGeo(ipAddress);
   }
 }
 
